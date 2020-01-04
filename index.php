@@ -51,7 +51,7 @@
       // データベース切断
       $dbh = null;
       // 変数の破棄
-      unset($name, $message, $created);
+      unset($name, $message, $created_at);
     }
   }
 
@@ -95,7 +95,6 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.min.css">
-    <link rel="stylesheet" href="css/page/home/style.min.css">
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="img/ico/favicon.ico" type="image/x-icon" />
@@ -114,7 +113,7 @@
 
     <!-- jQueryフォールバック -->
     <script>
-      window.jQuery || document.write(‘<script src="js/jquery-3.4.1.slim.min.js"><\/script>’);
+      window.jQuery || document.write("<script src='js/jquery-3.4.1.slim.min.js'><\/script>");
     </script>
 
   </head>
