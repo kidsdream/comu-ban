@@ -1,0 +1,22 @@
+.c-listAside {
+  text-align: center;
+
+  li {
+    a {
+      padding: 6px;
+      display: block;
+      color: #fff;
+      font-size: 1.4rem;
+      text-decoration: none;
+      transition: all 300ms 0s ease;
+      &:hover {
+        background: #fff;
+        color: #5ca4dc;
+      }
+      i {
+        padding-right: 10px;
+      }
+    }
+
+  }
+}

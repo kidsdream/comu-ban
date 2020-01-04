@@ -6,6 +6,7 @@ html {
 body {
   font-family: -apple-system, BlinkMacSystemFont, "M PLUS 1p", "Helvetica Neue", "Segoe UI", Hiragino Kaku Gothic ProN, "ヒラギノ角ゴ ProN W3", Arial, "メイリオ", Meiryo, sans-serif;
   background-color: #f6f5f4;
+  height: 100%;
 }
 
 *,
@@ -36,6 +37,8 @@ li {
   list-style: none;
 }
 
+
+// 一時的に使ったら上書きして削除予定
 input {
   width: 100%;
   background: #fff;
