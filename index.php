@@ -10,6 +10,7 @@
   // 変数初期化
   $name = null;
   $message = null;
+  $category = null;
   $created_at = null;
   $errors = array();
 
@@ -18,10 +19,12 @@
   // 送信ボタンが押された場合
   if(isset($_POST['submit'])) {
     $name = $_POST['name'];
+    $category = $_POST['category'];
     $message = $_POST['message'];
 
     // サニタイズ
     $name = htmlspecialchars($name, ENT_QUOTES);
+    $category = htmlspecialchars($category, ENT_QUOTES);
     $message = htmlspecialchars($message, ENT_QUOTES);
 
     // 入力チェック
@@ -39,11 +42,11 @@
     if (count($errors) === 0) {
       $created_at = date("Y-m-d H:i:s");
       $dbh = db_connect();
-      $sql = 'INSERT INTO messages (name, message, created_at) VALUES (?, ?, ?)';
-      $stmt = $dbh->prepare($sql);
-      $stmt->bindValue(1, $name, PDO::PARAM_STR);
-      $stmt->bindValue(2, $message, PDO::PARAM_STR);
-      $stmt->bindValue(3, $created_at, PDO::PARAM_STR);
+      $stmt = $dbh->prepare('INSERT INTO messages (name, message, category, created_at) VALUES (:name, :message, :category, :created_at)');
+      $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+      $stmt->bindValue(':message', $message, PDO::PARAM_STR);
+      $stmt->bindValue(':category', $category, PDO::PARAM_STR);
+      $stmt->bindValue(':created_at', $created_at, PDO::PARAM_STR);
       $stmt->execute();
 
       $success_message = 'メッセージを書き込みました';
@@ -129,11 +132,11 @@
   <div class="l-wrapper">
     <aside class="l-aside">
       <ul class="c-listAside">
-        <li><a href="#"><i class="fas fa-caret-square-right"></i>アニメ</a></li>
-        <li><a href="#"><i class="fas fa-gamepad"></i>ゲーム</a></li>
-        <li><a href="#"><i class="fas fa-music"></i>　音楽</a></li>
-        <li><a href="#"><i class="fas fa-tv"></i>テレビ</a></li>
-        <li><a href="#"><i class="fas fa-broadcast-tower"></i>ラジオ</a></li>
+        <li><a href="?category=animation"><i class="fas fa-caret-square-right"></i>アニメ</a></li>
+        <li><a href="?category=game"><i class="fas fa-gamepad"></i>ゲーム</a></li>
+        <li><a href="?category=music"><i class="fas fa-music"></i>　音楽</a></li>
+        <li><a href="?category=tv"><i class="fas fa-tv"></i>テレビ</a></li>
+        <li><a href="?category=radio"><i class="fas fa-broadcast-tower"></i>ラジオ</a></li>
       </ul>
     </aside>
 
@@ -148,7 +151,7 @@
       <!-- エラー表示 -->
       <?php if (!empty($errors)): ?>
         <div class="c-info">
-          <ul class="error_message">
+          <ul class="c-info__message c-errorMessage">
             <?php foreach ($errors as $value): ?>
               <li><?php echo $value; ?></li>
             <?php endforeach; ?>
@@ -156,7 +159,7 @@
         </div>
       <?php endif; ?>
 
-      <form action="index.php" method="post" class="c-form">
+      <form action="" method="post" class="c-form u-mt60">
         <ul>
           <li>
             <label for="name">名前</label>
@@ -167,20 +170,38 @@
               value="<?php if(isset($name)) { print($name); } ?>"
             />
           </li>
-            <li>
-              <label for="message">内容</label>
-              <textarea name="message" id="message" ><?php if(isset($message)) { print($message); } ?></textarea>
-            </li>
+          <li>
+            <label for="message">内容</label>
+            <textarea name="message" id="message" ><?php if(isset($message)) { print($message); } ?></textarea>
+          </li>
+          <li>
+            <label for="category">カテゴリー</label>
+            <select class="" name="category" id="category">
+              <option value="animation">アニメ</option>
+              <option value="game">ゲーム</option>
+              <option value="music">音楽</option>
+              <option value="tv">テレビ</option>
+              <option value="radio">ラジオ</option>
+            </select>
+          </li>
           <li><input type="submit" name="submit" class="c-btn" value="書き込む" /></li>
         </ul>
       </form>
 
       <?php
-        $dbh = db_connect();
-        $sql = 'SELECT id, name, message, created_at FROM messages ORDER BY id DESC';
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute();
-        $dbh = null;
+        if(isset($_GET['category'])) {
+          $dbh = db_connect();
+          $category = $_GET['category'];
+          $stmt = $dbh->prepare('SELECT id, name, message, created_at FROM messages WHERE category = :category ORDER BY id DESC');
+          $stmt->bindValue(':category', $category, PDO::PARAM_STR);
+          $stmt->execute();
+          $dbh = null;
+        } else {
+          $dbh = db_connect();
+          $stmt = $dbh->prepare('SELECT id, name, message, created_at FROM messages ORDER BY id DESC');
+          $stmt->execute();
+          $dbh = null;
+        }
       ?>
 
       <div class="l-flex">

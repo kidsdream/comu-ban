@@ -1,9 +1,12 @@
 .p-info {
-  
   &__name {
-
+    padding-bottom: 8px;
   }
   &__time {
-
+    position: absolute;
+    font-size: 0.8rem;
+    color: #aaa;
+    bottom: 10px;
+    right: 24px;
   }
 }
