@@ -14,8 +14,6 @@
   $created_at = null;
   $errors = array();
 
-  session_start();
-
   // 送信ボタンが押された場合
   if(isset($_POST['submit'])) {
     $name = $_POST['name'];
@@ -34,9 +32,6 @@
     if (trim($message) === '') {
       $errors['message'] = '内容欄が入力されていません';
     }
-
-    // セッションに名前を保存
-    $_SESSION['name'] = $name;
 
     // 全ての項目に値が正常に入っていた時
     if (count($errors) === 0) {
