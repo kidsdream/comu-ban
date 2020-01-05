@@ -1,6 +1,11 @@
 .c-btn {
-  background: #5691e9;
+
+  text-align: center;
+  width: 240px;
+  height: 32px;
+  background: #e85d69;
   color: #fff;
+  border-radius: 4px;
   &:hover {
     opacity: 0.4;
   }

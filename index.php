@@ -91,6 +91,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@new_kidsdream">
 
+    <!-- URL正規化 -->
+    <link rel="canonical" href="http://comuban.site/">
 
   <!-- ================================
         Asset定義
@@ -108,6 +110,8 @@
     <script src="https://kit.fontawesome.com/9b759cafa6.js" crossorigin="anonymous"></script>
 
     <!-- JavaScript -->
+    <script src="js/contentAnimation.js" charset="utf-8" async></script>
+
     <!-- jQuery -->
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -125,7 +129,7 @@
 
   <header id="l-header">
     <div class="p-title">
-      <h1>COMUBAN</h1>
+      <h1><a href="http://comuban.site/">COMUBAN</a></h1>
     </div>
   </header>
 
@@ -167,22 +171,25 @@
               type="text"
               id="name"
               name="name"
+              class="nameInput"
               value="<?php if(isset($name)) { print($name); } ?>"
             />
           </li>
           <li>
             <label for="message">内容</label>
-            <textarea name="message" id="message" ><?php if(isset($message)) { print($message); } ?></textarea>
+            <textarea name="message" id="message" class="messageTextarea" ><?php if(isset($message)) { print($message); } ?></textarea>
           </li>
           <li>
             <label for="category">カテゴリー</label>
-            <select class="" name="category" id="category">
-              <option value="animation">アニメ</option>
-              <option value="game">ゲーム</option>
-              <option value="music">音楽</option>
-              <option value="tv">テレビ</option>
-              <option value="radio">ラジオ</option>
-            </select>
+            <div class="selectWrap">
+              <select class="categorySelect" name="category" id="category">
+                <option value="animation">アニメ</option>
+                <option value="game">ゲーム</option>
+                <option value="music">音楽</option>
+                <option value="tv">テレビ</option>
+                <option value="radio">ラジオ</option>
+              </select>
+            </div>
           </li>
           <li><input type="submit" name="submit" class="c-btn" value="書き込む" /></li>
         </ul>

@@ -3,9 +3,11 @@
   height: inherit;
   background: #5186ed;
   h1 {
-    cursor: default;
-    color: #eee;
-    padding-top: 14px;
     text-align: center;
+    padding-top: 14px;
+    a {
+      color: #eee;
+      text-decoration: none;
+    }
   }
 }
