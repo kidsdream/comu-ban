@@ -8,8 +8,7 @@ $(function(){
         var windowHeight = $(window).height();
         var windowTop = $(window);
         if (scroll >= elemPos - windowHeight + 200){
-            $(this).addClass('isFadeinAnim');
-            console.log(this);
+          $(this).addClass('isFadeinAnim');
         }
     });
   });
