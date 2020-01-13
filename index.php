@@ -102,11 +102,7 @@
       unset($name, $message, $created_at);
     }
   }
-
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="ja" dir="ltr">
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
@@ -356,17 +352,14 @@
     <?php if ($page < $max_page && !isset($_GET['category'])): ?>
       <a href="?page=<?php echo($page+1); ?>" class="c-pageBtn c-pageNext"><?php echo($page+1); ?>ページ目へ</a>
     <?php endif; ?>
-
     <!-- 各カテゴリーページ用ページネーション -->
     <?php if (!empty($_GET['category'])) {
-      setcookie("selectCategory", $_GET['category']);
       $selectCategory = $_GET['category'];
       $nonQueryURL =  $_SERVER['SCRIPT_NAME'];
       $qeryURL = $_SERVER['QUERY_STRING'];
       parse_str($qeryURL, $str);
       $nowURL = $nonQueryURL . '?category=' . $str['category'];
-    };
-    ?>
+    }; ?>
     <?php if ($page >= 2 && isset($_GET['category'])): ?>
       <a href="<?php echo($nowURL) ?>&page=<?php echo($page-1); ?>" class="c-pageBtn c-pageBack"><?php echo($page-1); ?>ページ目へ</a>
     <?php endif; ?>
