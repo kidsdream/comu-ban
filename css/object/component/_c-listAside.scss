@@ -1,22 +1,25 @@
 .c-listAside {
   text-align: center;
+}
 
-  li {
-    a {
-      padding: 6px;
-      display: block;
-      color: #fff;
-      font-size: 1.4rem;
-      text-decoration: none;
-      transition: all 200ms 0s ease;
-      &:hover {
-        background: #fff;
-        color: #5ca4dc;
-      }
-      i {
-        padding-right: 10px;
-      }
-    }
-
+.p-asideBtn {
+  padding: 6px;
+  display: block;
+  color: #fff;
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: all 200ms 0s ease;
+  &:hover {
+    text-decoration: none;
+    background: #fff;
+    color: #5ca4dc;
   }
+  i {
+    padding-right: 10px;
+  }
+}
+
+.is-listAsideBtnActive {
+  background: #fff;
+  color: #5ca4dc;
 }

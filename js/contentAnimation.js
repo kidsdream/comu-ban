@@ -22,4 +22,12 @@ $(function(){
     });
   });
 
+  function fadeAnimation() {
+    $('.p-contents').each(function(index, element){
+      for (var index; index <= 5; index++) {
+        $(this).addClass('isFadeinAnim');
+      };
+    });
+  }
+
 });

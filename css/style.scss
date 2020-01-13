@@ -31,7 +31,10 @@
 @import './object/component/c-btn';
 @import './object/component/c-listAside';
 @import './object/component/c-successMessage';
+@import './object/component/c-removeMessage';
 @import './object/component/c-errorMessage';
+@import './object/component/c-modal';
+@import './object/component/c-pageBtn';
 
 // ======================
 // Object
@@ -39,9 +42,9 @@
 // ======================
 
 @import './object/project/p-info';
-@import './object/project/p-message';
 @import './object/project/p-contents';
 @import './object/project/p-title';
+@import './object/project/p-displayPostBtn';
 
 // ======================
 // Object
@@ -49,4 +52,5 @@
 // ======================
 
 @import './object/utility/u-mt10';
+@import './object/utility/u-mt30';
 @import './object/utility/u-mt60';

@@ -1,0 +1,30 @@
+.c-modal {
+  display: none;
+}
+
+.modal{
+  display: none;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.modal__bg{
+  top: -80px;
+  left: -220px;
+  background: rgba(0,0,0,0.6);
+  position: absolute;
+  height: calc(100% + 80px);
+  width: calc(100% + 220px);
+  z-index: 10;
+}
+.modal__content{
+  background: #fff;
+  left: 50%;
+  padding: 40px;
+  position: fixed;
+  top: 360px;
+  transform: translate(-50%,-50%);
+  z-index: 20;
+  border-radius: 16px;
+}

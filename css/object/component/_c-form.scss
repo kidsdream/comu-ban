@@ -8,12 +8,16 @@
     height: 32px;
     width: 100%;
     background: #fff;
+    border: thin solid #ccc;
+    border-radius: 4px;
     font-weight: bold;
     font-size: 24px;
   }
   .messageTextarea {
     height: 144px;
     width: 100%;
+    border: thin solid #ccc;
+    border-radius: 4px;
     background: #fff;
     font-size: 20px;
   }
