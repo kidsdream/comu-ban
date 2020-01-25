@@ -13,6 +13,12 @@
   $created_at = null;
   $errors = array();
 
+  // 利用者を判別するためブラウザにクッキーを保存させる。
+  if(!isset($_COOKIE["userId"])) {
+    $str_shuffle = str_shuffle('1234567890abcdefghijklmnopqrstuvwxyz');
+    setcookie('userId', $str_shuffle, time() + 60 * 60 * 24 * 30);
+  }
+
   // データ削除処理
   if(isset($_POST['remove'])) {
     $dbh = db_connect();
@@ -46,12 +52,14 @@
 
     // 全ての項目に値が正常に入っていた時
     if (count($errors) === 0) {
+      $user_id = $_COOKIE["userId"];
       $created_at = date("Y-m-d H:i:s");
       $dbh = db_connect();
-      $stmt = $dbh->prepare('INSERT INTO messages (name, message, category, created_at) VALUES (:name, :message, :category, :created_at)');
+      $stmt = $dbh->prepare('INSERT INTO messages (name, message, category, user_id, created_at) VALUES (:name, :message, :category, :user_id, :created_at)');
       $stmt->bindValue(':name', $name, PDO::PARAM_STR);
       $stmt->bindValue(':message', $message, PDO::PARAM_STR);
       $stmt->bindValue(':category', $category, PDO::PARAM_STR);
+      $stmt->bindValue(':user_id', $user_id, PDO::PARAM_STR);
       $stmt->bindValue(':created_at', $created_at, PDO::PARAM_STR);
       $stmt->execute();
 
