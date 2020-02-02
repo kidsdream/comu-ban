@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-02-01 18:52:40
-  from 'C:\MAMP\htdocs\php-board\src\View\hello.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-02-02 01:05:52
+  from 'C:\MAMP\htdocs\php-board\src\View\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e354a68b7b914_94920166',
+  'unifunc' => 'content_5e35a1e01f7fd7_31218755',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'a45e3924b8e0a8a46ced97d02c5df0fb1f61f848' => 
+    'b73e05b50d4b3f70435e89d5835946184587d1be' => 
     array (
-      0 => 'C:\\MAMP\\htdocs\\php-board\\src\\View\\hello.tpl',
-      1 => 1580550345,
+      0 => 'C:\\MAMP\\htdocs\\php-board\\src\\View\\header.tpl',
+      1 => 1580555355,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e354a68b7b914_94920166 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e35a1e01f7fd7_31218755 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="ja" dir="ltr">
   <head>
@@ -117,59 +117,9 @@ function content_5e354a68b7b914_94920166 (Smarty_Internal_Template $_smarty_tpl)
 
   </head>
 
+
+
+
   <body>
-    <header id="l-header">
-      <div class="p-title">
-        <h1><a href="https://comuban.site/">COMUBAN</a></h1>
-      </div>
-    </header>
-
-    <button type="button" name="button" class="p-displayPostBtn c-btn c-btn--circle c-btn--pink" id="js-createContent">投稿する</button>
-
-    <div class="l-wrapper">
-      <aside class="l-aside">
-        <ul class="c-listAside">
-          <li><a href="?category=animation" class="p-asideBtn" id="js-animBtn"><i class="fas fa-caret-square-right"></i>アニメ</a></li>
-          <li><a href="?category=game" class="p-asideBtn" id="js-gameBtn"><i class="fas fa-gamepad"></i>ゲーム</a></li>
-          <li><a href="?category=music" class="p-asideBtn" id="js-musicBtn"><i class="fas fa-music"></i>　音楽</a></li>
-          <li><a href="?category=tv" class="p-asideBtn" id="js-tvBtn"><i class="fas fa-tv"></i>テレビ</a></li>
-          <li><a href="?category=radio" class="p-asideBtn" id="js-radioBtn"><i class="fas fa-broadcast-tower"></i>ラジオ</a></li>
-        </ul>
-      </aside>
-
-      <main id="l-main">
-        <div id="js-info">
-          <!-- メッセージが正常に投稿された場合の表示 -->
-          <?php if (!empty($_smarty_tpl->tpl_vars['success_message']->value)) {?>
-            <div class="c-info">
-              <p class="c-info__message c-successMessage"><?php echo $_smarty_tpl->tpl_vars['success_message']->value;?>
-</p>
-            </div>
-          <?php }?>
-        </div>
-
-        <!-- コンテンツ表示処理 -->
-        <div id="ajax-result">
-
-        </div>
-
-      </main>
-
-      <footer id="l-footer">
-        <p>
-          <small>&copy; 2019 - <span id="thisYear"></span>  DREAM</small>
-          <?php echo '<script'; ?>
- type="text/javascript">
-            date = new Date();
-            thisYear = date.getFullYear();
-            document.getElementById("thisYear").innerHTML = thisYear;
-          <?php echo '</script'; ?>
->
-        </p>
-      </footer>
-
-    </div>
-  </body>
-</html>
 <?php }
 }

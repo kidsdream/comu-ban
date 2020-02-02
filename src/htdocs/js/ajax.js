@@ -1,5 +1,4 @@
 $(function(){
-
   // 投稿ボタン押下時の非同期処理
   $("#js-contentCreateBtn").click(function(){
 
@@ -8,11 +7,12 @@ $(function(){
     let category = $("#category").val();
     $.ajax({
       type:'POST',
-      url: 'index.php',
+      url: './src/Controller/IndexController.php',
       cache: false,
       data: {name: name, message: message, category: category, submit: true},
     })
     .done((data) => {
+      console.log('【Ajax】正常にDONE通過');
       // エラー表示
       $('#js-info').html($('#js-info', $(data)).html());
       // 更新後のデータを再描画

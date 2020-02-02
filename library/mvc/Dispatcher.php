@@ -12,7 +12,6 @@ class Dispatcher {
   public function dispatch() {
     // パラメーター取得
     $param = $_SERVER['REQUEST_URI'];
-    var_dump($param);
 
     $params = array();
     if ('' != $param) {
@@ -29,8 +28,6 @@ class Dispatcher {
 
     if ($params[2] != "") {
       $controller = $params[2];
-      var_dump($params);
-      var_dump('OK');
     }
 
     // パラメーターより取得したコントローラー名によりクラス振り分け

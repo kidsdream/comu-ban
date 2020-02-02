@@ -1,4 +1,5 @@
 Options +FollowSymLinks
 RewriteEngine on
-RewriteRule ^index.php$ - [L]
-RewriteRule (.*) index.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule !\.(pdf|ico|gif|jpg|png|css|html|xml|js|tpl)$ index.php
